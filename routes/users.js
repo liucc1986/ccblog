@@ -14,7 +14,7 @@ router.get('/cclogin', function(req, res, next) {
       return  res.redirect('/');
     }
 
-    res.render('login',{
+    res.render('user/login',{
         title:"请登录",
         navActive:"login"
     });
@@ -47,7 +47,7 @@ router.post('/login', function(req, res, next) {
     });
 });
 router.get('/reg', function(req, res, next) {
-    res.render('reg',{
+    res.render('user/reg',{
         title:"欢迎注册"
 
     });

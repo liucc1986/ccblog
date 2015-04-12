@@ -126,6 +126,7 @@ router.get('/list/:pageNum?/:pageSize?',function(req,res,next){
         var articleList=results.getArticleList;
         var tags=results.getTags;
         res.render(articleList.temp,{
+            keyword:articleList.keyword,
             title:articleList.title,
             totalPage:articleList.totalPage,
             pageNum:articleList.pageNum,
