@@ -1,0 +1,39 @@
+<%- include ../include/header %>
+<form class="form-horizontal" method="post" action="/article/<%= cmd%>">
+    <div class="form-group">
+        <label class="radio-inline">
+            <input type="radio" name="category" value="javascript" checked > javascript
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="category"  value="nodejs"> nodeJs
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="category" value="notes">随笔
+        </label>
+    </div>
+    <div class="form-group">
+        <input type="hidden" name="_id" value="<%= article._id %>"/>
+
+        <label for="title">标题</label>
+        <input  class="form-control" type="text" name="title" value="<%= article.title %>"/>
+    </div>
+    <div class="form-group">
+        <label for="content">内容</label>
+        <textarea class="form-control" name="content" rows="20" cols="50" id="content"><%= article.content %></textarea>
+    </div>
+    <div class="form-group form-inline">
+        <label class="" for="tags">标签:</label>
+        <input type="text" name="tags" class="form-control" value="<%= article.tags %>" /><span class="">多个标签用逗号隔开</span>
+    </div>
+    <input class="btn btn-default" type="submit" value="发表" />
+</form>
+<br/><br/><br/>
+<script>
+    var aCategory=document.getElementsByName('category');
+    for(var i=0 ; i<aCategory.length;i++){
+        if(aCategory[i].value=='<%= article.category%>'){
+            aCategory[i].checked=true;
+        }
+    }
+</script>
+<%- include ../include/footer %>

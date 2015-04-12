@@ -1,0 +1,69 @@
+﻿<%- include ../include/header.ejs%>
+
+
+    <div class="row">
+        <div class="col-sm-8 blog-main">
+            <div class="blog-header">
+                <h1 class="blog-title"></h1>
+                <p class="lead blog-description">专注js</p>
+            </div>
+            <% docs.forEach(function (doc, index) { %>
+            <div class="blog-post">
+                <h2 class="blog-post-title"><a href="/article/view/<%= doc._id %>"><%= doc.title %></a></h2>
+                <p class="blog-post-meta"> <a href="/article/category/<%= doc.category %>"><%= categoryJson[ doc.category] %></a>  <%= doc.createTime.minute %> by <%= doc.userId.username %> 阅读次数：<%= doc.pv %>
+                <%
+                 if(user){
+
+                %>
+                    <a href="/article/edit/<%= doc._id %>">编辑</a>
+                    <a href="/article/delete/<%= doc._id %>" >删除</a>
+                <%
+                }%>
+                </p>
+
+                <p><%- doc.content %></p>
+            </div><!-- /.blog-post -->
+            <% }) %>
+
+            <% if(pageSize){%>
+            <ul class="pagination">
+                <%
+                var num =0;
+                if(pageNum %5==0){
+                    num = pageNum/5 -1;
+                }else{
+                    num = Math.floor(pageNum/5);
+                }
+                var start = num *5+1;
+                var end = start + 4>totalPage?totalPage:start+4;
+                if(start >1){
+                %><li><a href="/article/list/<%=start -1%>/<%=pageSize%>">&laquo;</a></li><%
+                }
+                for(var i=start;i<=end;i++){
+                %>
+                    <%
+                     if(i==pageNum){
+                    %>
+                        <li class="active"><a href="/article/list/<%=i%>/<%=pageSize%>"><%=i%></a></li>
+                    <%
+                     }else{
+                     %>
+                        <li><a href="/article/list/<%=i%>/<%=pageSize%>"><%=i%></a></li>
+
+                    <%}%>
+
+                <%}%>
+                <% if(totalPage>end){
+                %>
+                    <li><a href="/article/list/<%=end +1%>/<%=pageSize%>">&raquo;</a></li>
+                <%}%>
+
+            </ul>
+            <%}%>
+        </div><!-- /.blog-main -->
+
+        <%- include ../include/slider.ejs %>
+
+    </div><!-- /.row -->
+
+<%- include ../include/footer %>

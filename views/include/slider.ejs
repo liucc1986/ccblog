@@ -1,0 +1,35 @@
+<div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+    <div class="sidebar-module">
+        <form role="form" class="form-horizontal form-inline" action="/article/list/">
+            <div class="form-group">
+                    <input class="form-control " type="search" name="keyword" value="<%=keyword%>"placeholder="请输入查询关键字" />
+                    <button type="submit" name="searchBtn" value="search" class="btn btn-primary">搜索</button>
+
+            </div>
+
+
+        </form>
+
+    </div>
+    <div class="sidebar-module sidebar-module-inset">
+        <h4>About</h4>
+        <p>简介。。。 。。。</p>
+    </div>
+    <div class="sidebar-module">
+        <h4>tas</h4>
+        <ol class="list-unstyled">
+            <% tags.forEach (function(tag){%>
+                <li><a href="/article/tags/<%=tag%>"><%=tag%></a></li>
+            <%})%>
+
+        </ol>
+    </div>
+    <div class="sidebar-module">
+        <h4>Elsewhere</h4>
+        <ol class="list-unstyled">
+            <li><a href="#">GitHub</a></li>
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">Facebook</a></li>
+        </ol>
+    </div>
+</div><!-- /.blog-sidebar -->

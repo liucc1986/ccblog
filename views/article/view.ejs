@@ -1,0 +1,34 @@
+﻿<%- include ../include/header.ejs %>
+<div class="row">
+    <div class="col-sm-8 blog-main">
+        <div class="blog-post">
+            <h2 class="blog-post-title"><%= article.title %></h2>
+            <p class="blog-post-meta"><a href="/article/category/<%= article.category %>"><%= categoryJson[ article.category] %></a> <%= article.createTime.minute %> by <%= article.userId.username %> 阅读次数：<%= article.pv %>
+                <%
+                if(user){
+                %>
+                <a href="/article/edit/<%= article._id %>">编辑</a>
+                <a href="/article/delete/:<%= article._id %>">删除</a>
+                <% }%>
+            </p>
+            <p><%- article.content %></p>
+            <div class="ds-thread" data-thread-key="<%= article._id %>" data-title="<%= article.title %>" data-url="#"></div>
+            <script type="text/javascript">
+                var duoshuoQuery = {short_name:"liucc"};
+                (function() {
+                    var ds = document.createElement('script');
+                    ds.type = 'text/javascript';ds.async = true;
+                    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+                    ds.charset = 'UTF-8';
+                    (document.getElementsByTagName('head')[0]
+                    || document.getElementsByTagName('body')[0]).appendChild(ds);
+                })();
+            </script>
+        </div><!-- /.blog-post -->
+
+    </div><!-- /.blog-main -->
+
+    <%- include ../include/slider.ejs %>
+
+</div><!-- /.row -->
+<%- include ../include/footer %>

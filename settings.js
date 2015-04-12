@@ -1,0 +1,12 @@
+﻿exports.mongoConfig={
+    cookieSecret:"blog",
+    db:"blog",
+    host:"localhost",
+    port:27017
+};
+exports.pagesize=2;
+exports.categoryJson={
+    "javascript":"javascript",
+    "nodejs":"nodeJs",
+    "notes":"随笔"
+};
