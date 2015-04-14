@@ -1,7 +1,7 @@
 ﻿exports.mongoConfig={
     cookieSecret:"blog",
-    db:"blog",
-    host:"localhost",
+    db:"liujinwei",
+    host:"123.57.143.189",
     port:27017
 };
 exports.pagesize=2;
