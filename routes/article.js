@@ -3,7 +3,7 @@
  */
 var express=require('express');
 var router=express.Router();
-var Article=require('../module/article');
+var Article=require('../model/article');
 var settings=require('../settings');
 var markdown=require('markdown');
 var dateUtil=require('../util/dateUtil');

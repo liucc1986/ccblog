@@ -1,5 +1,5 @@
 var express = require('express');
-var User = require('../module/user');
+var User = require('../model/user');
 var router = express.Router();
 var crypto = require('crypto');
 
